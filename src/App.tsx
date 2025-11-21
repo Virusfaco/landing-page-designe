@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent } from '@/components/ui/card'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
@@ -10,16 +9,15 @@ import { Separator } from '@/components/ui/separator'
 import { Toaster } from '@/components/ui/sonner'
 import {
   CheckCircle,
-  ShieldCheck,
-  Lightning,
-  TrendUp,
+  Sparkle,
+  MapPin,
   Users,
   ArrowRight,
   Star,
-  Clock,
-  Trophy,
-  Phone,
-  EnvelopeSimple,
+  Camera,
+  FilmStrip,
+  Wine,
+  Gift,
 } from '@phosphor-icons/react'
 import { toast } from 'sonner'
 
@@ -27,7 +25,6 @@ function App() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -36,65 +33,117 @@ function App() {
     setIsSubmitting(true)
 
     setTimeout(() => {
-      toast.success('Thank you! We\'ll contact you within 24 hours.')
-      setFormData({ name: '', email: '', phone: '' })
+      toast.success('Success! Check your email for your free Rome Cinema Guide and 10% discount code.')
+      setFormData({ name: '', email: '' })
       setIsSubmitting(false)
     }, 1000)
   }
 
   const scrollToForm = () => {
-    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('signup-form')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <div className="min-h-screen bg-background">
       <Toaster position="top-center" />
+      
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="relative bg-gradient-to-br from-primary/5 via-background to-muted/30 pt-16 pb-20 md:pt-24 md:pb-32"
+        transition={{ duration: 0.8 }}
+        className="relative bg-gradient-to-br from-primary/5 via-background to-muted/30 pt-20 pb-24 md:pt-28 md:pb-36 overflow-hidden"
       >
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        </div>
+
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div className="text-center mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-block"
+            >
+              <h1 className="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-tight text-foreground tracking-tight mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                MOVIEMILES
+              </h1>
+              <div className="h-1 w-32 bg-accent mx-auto rounded-full" />
+            </motion.div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-8 order-2 md:order-1">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="space-y-4"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="space-y-6"
               >
-                <Badge className="bg-accent/10 text-accent border-accent/20 hover:bg-accent/20">
-                  <Lightning weight="fill" className="mr-1" />
-                  Trusted by 10,000+ Businesses
+                <Badge className="bg-accent/20 text-accent-foreground border-accent/30 hover:bg-accent/30 px-4 py-2 text-base">
+                  <Sparkle weight="fill" className="mr-2" size={18} />
+                  Experience Cinematic Rome
                 </Badge>
-                <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl leading-tight text-foreground tracking-tight">
-                  Transform Your Business Growth in 90 Days
-                </h1>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                  Join thousands of successful companies who increased their revenue by 20%+ using our proven strategies and premium solutions.
+                <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl leading-tight text-foreground" style={{ fontFamily: "'Playfair Display', serif", letterSpacing: '-0.02em' }}>
+                  Walk Inside Your Favorite Movies in Rome
+                </h2>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed italic" style={{ lineHeight: '1.65' }}>
+                  Join our exclusive cinema tours and discover the eternal city through the lens of <span className="text-foreground font-semibold">La Dolce Vita</span> and <span className="text-foreground font-semibold">Roman Holiday</span>.
                 </p>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4"
+                transition={{ delay: 0.5 }}
+                className="space-y-5"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="bg-accent/10 rounded-full p-2 mt-1">
+                    <MapPin className="text-accent" size={22} weight="fill" />
+                  </div>
+                  <div>
+                    <p className="text-lg text-foreground font-medium">Visit iconic film locations with expert guides</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-accent/10 rounded-full p-2 mt-1">
+                    <Wine className="text-accent" size={22} weight="fill" />
+                  </div>
+                  <div>
+                    <p className="text-lg text-foreground font-medium">Authentic Italian food & wine tastings included</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-accent/10 rounded-full p-2 mt-1">
+                    <Camera className="text-accent" size={22} weight="fill" />
+                  </div>
+                  <div>
+                    <p className="text-lg text-foreground font-medium">Perfect photo opportunities for your social media</p>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-col sm:flex-row gap-4 pt-4"
               >
                 <Button
                   size="lg"
                   onClick={scrollToForm}
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-lg h-14 px-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-lg h-16 px-10 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 tracking-wide"
                 >
-                  Get Started Free
-                  <ArrowRight weight="bold" className="ml-2" />
+                  Get Free Cinema Guide
+                  <ArrowRight weight="bold" className="ml-2" size={20} />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   onClick={scrollToForm}
-                  className="h-14 px-8 font-heading font-semibold text-lg border-2"
+                  className="h-16 px-10 font-heading font-semibold text-lg border-2 border-primary text-primary hover:bg-primary/5"
                 >
                   Learn More
                 </Button>
@@ -103,60 +152,60 @@ function App() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="flex items-center gap-6 pt-4"
+                transition={{ delay: 0.9 }}
+                className="flex items-center gap-6 pt-2"
               >
-                <div className="flex -space-x-3">
-                  <Avatar className="border-2 border-background w-10 h-10">
-                    <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop" />
-                    <AvatarFallback>A</AvatarFallback>
+                <div className="flex -space-x-4">
+                  <Avatar className="border-4 border-background w-14 h-14 shadow-md">
+                    <AvatarImage src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" />
+                    <AvatarFallback>M</AvatarFallback>
                   </Avatar>
-                  <Avatar className="border-2 border-background w-10 h-10">
+                  <Avatar className="border-4 border-background w-14 h-14 shadow-md">
+                    <AvatarImage src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&h=100&fit=crop" />
+                    <AvatarFallback>J</AvatarFallback>
+                  </Avatar>
+                  <Avatar className="border-4 border-background w-14 h-14 shadow-md">
+                    <AvatarImage src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop" />
+                    <AvatarFallback>S</AvatarFallback>
+                  </Avatar>
+                  <Avatar className="border-4 border-background w-14 h-14 shadow-md">
                     <AvatarImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" />
-                    <AvatarFallback>B</AvatarFallback>
-                  </Avatar>
-                  <Avatar className="border-2 border-background w-10 h-10">
-                    <AvatarImage src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" />
-                    <AvatarFallback>C</AvatarFallback>
-                  </Avatar>
-                  <Avatar className="border-2 border-background w-10 h-10">
-                    <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" />
                     <AvatarFallback>D</AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="flex items-center gap-1">
-                  <div className="flex">
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} weight="fill" className="text-yellow-500 w-4 h-4" />
+                      <Star key={i} weight="fill" className="text-yellow-500 w-5 h-5" />
                     ))}
                   </div>
-                  <span className="text-sm text-muted-foreground ml-2">4.9/5 from 2,847 reviews</span>
+                  <span className="text-sm text-muted-foreground font-medium">Rated 4.9/5 by 1,200+ cinema lovers</span>
                 </div>
               </motion.div>
             </div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 }}
-              className="relative"
+              transition={{ delay: 0.4 }}
+              className="relative order-1 md:order-2"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                  alt="Business dashboard showing growth metrics"
+                  src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=900&h=1100&fit=crop"
+                  alt="View of Rome from St. Peter's Basilica"
                   className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-background rounded-xl shadow-xl p-4 border">
-                <div className="flex items-center gap-3">
-                  <div className="bg-green-500/10 rounded-full p-2">
-                    <TrendUp className="text-green-600" size={24} weight="bold" />
+              <div className="absolute -bottom-8 -left-8 bg-background rounded-2xl shadow-2xl p-6 border-2 border-accent/20 max-w-xs">
+                <div className="flex items-center gap-4">
+                  <div className="bg-accent/10 rounded-xl p-3">
+                    <FilmStrip className="text-accent" size={32} weight="fill" />
                   </div>
                   <div>
-                    <div className="font-heading font-bold text-2xl text-foreground">+127%</div>
-                    <div className="text-sm text-muted-foreground">Revenue Growth</div>
+                    <div className="font-heading font-bold text-3xl text-foreground">500+</div>
+                    <div className="text-sm text-muted-foreground font-medium">Film Locations Discovered</div>
                   </div>
                 </div>
               </div>
@@ -165,86 +214,83 @@ function App() {
         </div>
       </motion.section>
 
-      <section className="py-16 md:py-24 bg-background">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12 space-y-4">
-            <Badge className="bg-primary/10 text-primary border-primary/20">
-              Why Choose Us
+          <div className="text-center mb-16 space-y-4">
+            <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 text-base">
+              Why MovieMiles
             </Badge>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground">
-              Everything You Need to Succeed
+            <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Your Cinematic Adventure Awaits
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Our comprehensive solution provides all the tools and support you need to achieve your business goals
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" style={{ lineHeight: '1.65' }}>
+              Experience Rome like never before—through the magic of classic cinema with authentic cultural immersion
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
-                icon: Lightning,
-                title: 'Lightning Fast Results',
-                description: 'See measurable improvements in your business metrics within the first 30 days of implementation',
-                color: 'text-yellow-600',
-                bgColor: 'bg-yellow-500/10',
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Guaranteed Success',
-                description: 'Our proven methodology has helped over 10,000 businesses achieve their growth targets',
-                color: 'text-green-600',
-                bgColor: 'bg-green-500/10',
+                icon: MapPin,
+                title: 'Iconic Locations',
+                description: 'Walk the exact steps of Audrey Hepburn at the Spanish Steps and Trevi Fountain, recreate scenes from La Dolce Vita',
+                color: 'text-primary',
+                bgColor: 'bg-primary/10',
               },
               {
                 icon: Users,
-                title: 'Expert Support 24/7',
-                description: 'Access our team of specialists whenever you need guidance or assistance',
-                color: 'text-blue-600',
-                bgColor: 'bg-blue-500/10',
+                title: 'Expert Film Guides',
+                description: 'Our passionate cinema historians share behind-the-scenes stories and fascinating details about each filming location',
+                color: 'text-accent',
+                bgColor: 'bg-accent/10',
               },
               {
-                icon: TrendUp,
-                title: 'Proven Growth Strategy',
-                description: 'Data-driven approach that has consistently delivered 20%+ revenue increases',
-                color: 'text-purple-600',
-                bgColor: 'bg-purple-500/10',
+                icon: Wine,
+                title: 'Authentic Experiences',
+                description: 'Enjoy gelato at the same cafés featured in the films, taste wine in historic Roman trattorias',
+                color: 'text-primary',
+                bgColor: 'bg-primary/10',
               },
               {
-                icon: Clock,
-                title: 'Save Time & Resources',
-                description: 'Automate repetitive tasks and focus on what matters most for your business',
-                color: 'text-orange-600',
-                bgColor: 'bg-orange-500/10',
+                icon: Camera,
+                title: 'Instagram-Ready Moments',
+                description: 'Professional tips for capturing stunning photos at every location—your feed will thank you',
+                color: 'text-accent',
+                bgColor: 'bg-accent/10',
               },
               {
-                icon: Trophy,
-                title: 'Industry Recognition',
-                description: 'Award-winning platform trusted by Fortune 500 companies and startups alike',
-                color: 'text-pink-600',
-                bgColor: 'bg-pink-500/10',
+                icon: FilmStrip,
+                title: 'Small Group Tours',
+                description: 'Maximum 12 people per tour for an intimate, personalized experience with plenty of attention',
+                color: 'text-primary',
+                bgColor: 'bg-primary/10',
+              },
+              {
+                icon: Gift,
+                title: 'Exclusive Perks',
+                description: 'Free cinema guide, skip-the-line access to key sites, and special discounts at partner locations',
+                color: 'text-accent',
+                bgColor: 'bg-accent/10',
               },
             ].map((benefit, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-all hover:-translate-y-1 border-2">
-                  <CardContent className="p-6 space-y-4">
-                    <div className={`${benefit.bgColor} rounded-xl w-14 h-14 flex items-center justify-center`}>
-                      <benefit.icon className={benefit.color} size={28} weight="bold" />
+                <Card className="h-full hover:shadow-xl transition-all hover:-translate-y-2 border-2 border-border/50 bg-card">
+                  <CardContent className="p-8 space-y-4">
+                    <div className={`${benefit.bgColor} rounded-2xl w-16 h-16 flex items-center justify-center`}>
+                      <benefit.icon className={benefit.color} size={32} weight="bold" />
                     </div>
-                    <h3 className="font-heading font-semibold text-xl text-foreground">
+                    <h3 className="font-heading font-semibold text-2xl text-foreground">
                       {benefit.title}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed text-lg" style={{ lineHeight: '1.65' }}>
                       {benefit.description}
                     </p>
-                    <div className="pt-2">
-                      <CheckCircle className="text-accent" size={20} weight="fill" />
-                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -255,83 +301,84 @@ function App() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-12"
+            className="text-center mt-16"
           >
             <Button
               size="lg"
               onClick={scrollToForm}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-lg h-14 px-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-lg h-16 px-10 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 tracking-wide"
             >
-              Start Your Free Trial
-              <ArrowRight weight="bold" className="ml-2" />
+              Claim Your Free Guide + 10% Off
+              <ArrowRight weight="bold" className="ml-2" size={20} />
             </Button>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-20 md:py-28 bg-gradient-to-br from-muted/40 to-primary/5">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12 space-y-4">
-            <Badge className="bg-accent/10 text-accent border-accent/20">
-              Success Stories
+          <div className="text-center mb-16 space-y-4">
+            <Badge className="bg-accent/20 text-accent-foreground border-accent/30 px-4 py-2 text-base">
+              <Star weight="fill" className="mr-2" />
+              Testimonials
             </Badge>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground">
-              What Our Clients Say
+            <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Stories from Cinema Lovers
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real results from real businesses who transformed their growth with our solutions
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" style={{ lineHeight: '1.65' }}>
+              Hear from travelers who discovered the magic of Rome through our film tours
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
-                name: 'Sarah Johnson',
-                role: 'CEO, TechStart Inc',
-                image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop',
-                quote: 'We saw a 35% increase in revenue within just 3 months. The results exceeded all our expectations and the support team was incredible.',
+                name: 'Emma Thompson',
+                role: 'Film Enthusiast, London',
+                image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop',
+                quote: 'I felt like I was Audrey Hepburn for a day! Our guide knew every detail about Roman Holiday filming. The gelato stop at the exact café from the movie was magical. Worth every penny!',
                 rating: 5,
               },
               {
-                name: 'Michael Chen',
-                role: 'Founder, GrowthLabs',
+                name: 'Marco Rossi',
+                role: 'Photographer, Milan',
                 image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop',
-                quote: 'This is exactly what we needed. The implementation was smooth and we started seeing results immediately. Highly recommended!',
+                quote: 'As a photographer, the composition tips at each location were invaluable. I captured stunning shots and learned so much about Italian cinema history. An unforgettable experience!',
                 rating: 5,
               },
               {
-                name: 'Emily Rodriguez',
-                role: 'Marketing Director, Innovate Co',
-                image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop',
-                quote: 'The ROI has been phenomenal. Our team productivity increased by 40% and our customer satisfaction scores are at an all-time high.',
+                name: 'Sarah Williams',
+                role: 'Travel Blogger, New York',
+                image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop',
+                quote: 'Best tour in Rome, hands down. The small group made it feel personal, the wine tasting was authentic, and I got content for weeks! My followers are already booking their trips.',
                 rating: 5,
               },
             ].map((testimonial, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
               >
-                <Card className="h-full border-2">
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex">
+                <Card className="h-full border-2 bg-background/80 backdrop-blur hover:shadow-xl transition-all">
+                  <CardContent className="p-8 space-y-6">
+                    <div className="flex gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} weight="fill" className="text-yellow-500 w-5 h-5" />
+                        <Star key={i} weight="fill" className="text-yellow-500 w-6 h-6" />
                       ))}
                     </div>
-                    <p className="text-foreground leading-relaxed italic">
+                    <p className="text-foreground leading-relaxed italic text-lg" style={{ lineHeight: '1.65' }}>
                       "{testimonial.quote}"
                     </p>
                     <Separator />
-                    <div className="flex items-center gap-3">
-                      <Avatar className="w-12 h-12">
+                    <div className="flex items-center gap-4">
+                      <Avatar className="w-16 h-16 border-2 border-accent/20">
                         <AvatarImage src={testimonial.image} />
                         <AvatarFallback>{testimonial.name[0]}</AvatarFallback>
                       </Avatar>
                       <div>
-                        <div className="font-heading font-semibold text-foreground">
+                        <div className="font-heading font-semibold text-lg text-foreground">
                           {testimonial.name}
                         </div>
                         <div className="text-sm text-muted-foreground">
@@ -347,44 +394,45 @@ function App() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-background" id="contact-form">
+      <section className="py-20 md:py-28 bg-background" id="signup-form">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12 space-y-4">
-            <Badge className="bg-accent/10 text-accent border-accent/20">
-              Ready to Grow?
+            <Badge className="bg-accent/20 text-accent-foreground border-accent/30 hover:bg-accent/30 px-4 py-2 text-base">
+              <Gift weight="fill" className="mr-2" />
+              Special Offer
             </Badge>
-            <h2 className="font-heading font-bold text-3xl md:text-4xl lg:text-5xl text-foreground">
-              Start Your Success Story Today
+            <h2 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Get Your Free Rome Cinema Guide
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Get in touch with our team and discover how we can help you achieve your 20% growth goal
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed" style={{ lineHeight: '1.65' }}>
+              Sign up to receive our exclusive guide to Rome's film locations and get a <span className="text-accent font-bold">10% discount</span> on your first tour
             </p>
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="border-2 shadow-xl">
-              <CardContent className="p-8 md:p-10">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-semibold text-foreground">
-                      Full Name *
+            <Card className="border-2 border-accent/20 shadow-2xl bg-gradient-to-br from-card to-background">
+              <CardContent className="p-10 md:p-14">
+                <form onSubmit={handleSubmit} className="space-y-7">
+                  <div className="space-y-3">
+                    <label htmlFor="name" className="text-base font-semibold text-foreground">
+                      Your Name *
                     </label>
                     <Input
                       id="name"
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="John Smith"
-                      className="h-12 text-base"
+                      placeholder="Maria Romano"
+                      className="h-14 text-lg border-2 focus:border-accent"
                     />
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-semibold text-foreground">
+                  <div className="space-y-3">
+                    <label htmlFor="email" className="text-base font-semibold text-foreground">
                       Email Address *
                     </label>
                     <Input
@@ -393,23 +441,8 @@ function App() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="john@company.com"
-                      className="h-12 text-base"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-semibold text-foreground">
-                      Phone Number *
-                    </label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+1 (555) 000-0000"
-                      className="h-12 text-base"
+                      placeholder="maria@email.com"
+                      className="h-14 text-lg border-2 focus:border-accent"
                     />
                   </div>
 
@@ -418,79 +451,90 @@ function App() {
                       type="submit"
                       size="lg"
                       disabled={isSubmitting}
-                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-lg h-14 shadow-lg hover:shadow-xl transition-all"
+                      className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-xl h-16 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1 tracking-wide"
                     >
-                      {isSubmitting ? 'Submitting...' : 'Get Started Free'}
-                      {!isSubmitting && <ArrowRight weight="bold" className="ml-2" />}
+                      {isSubmitting ? 'Sending Your Guide...' : 'Get Free Guide + 10% Discount'}
+                      {!isSubmitting && <Gift weight="bold" className="ml-3" size={24} />}
                     </Button>
                   </div>
 
-                  <p className="text-xs text-center text-muted-foreground">
-                    <ShieldCheck className="inline mr-1" size={14} />
-                    We respect your privacy. Your information is secure and will never be shared.
-                  </p>
+                  <div className="flex items-center justify-center gap-3 pt-2">
+                    <CheckCircle className="text-accent" size={20} weight="fill" />
+                    <p className="text-sm text-center text-muted-foreground">
+                      100% free. No spam. Unsubscribe anytime.
+                    </p>
+                  </div>
                 </form>
 
-                <Separator className="my-8" />
+                <Separator className="my-10" />
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary/10 rounded-full p-3">
-                      <Phone className="text-primary" size={20} weight="bold" />
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 rounded-xl p-3">
+                      <CheckCircle className="text-primary" size={24} weight="fill" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground">Call us</div>
-                      <div className="font-semibold text-foreground">+1 (555) 123-4567</div>
+                      <div className="font-semibold text-foreground text-lg mb-1">Instant Access</div>
+                      <div className="text-muted-foreground">Your guide arrives in your inbox within minutes</div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary/10 rounded-full p-3">
-                      <EnvelopeSimple className="text-primary" size={20} weight="bold" />
+                  <div className="flex items-start gap-4">
+                    <div className="bg-accent/10 rounded-xl p-3">
+                      <Sparkle className="text-accent" size={24} weight="fill" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground">Email us</div>
-                      <div className="font-semibold text-foreground">hello@company.com</div>
+                      <div className="font-semibold text-foreground text-lg mb-1">Limited Time Offer</div>
+                      <div className="text-muted-foreground">10% discount valid for bookings made this month</div>
                     </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <p className="text-muted-foreground mb-3">100% Satisfaction Guaranteed • Small Groups • Expert Guides</p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="py-12 bg-muted/30">
+      <section className="py-12 bg-gradient-to-br from-primary/10 to-accent/5 border-t-2 border-accent/20">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-8">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-primary" size={24} weight="bold" />
-                <span className="text-sm font-semibold text-foreground">100% Secure</span>
+            <div className="flex items-center gap-8 flex-wrap justify-center">
+              <div className="flex items-center gap-3">
+                <CheckCircle className="text-primary" size={28} weight="fill" />
+                <span className="text-base font-semibold text-foreground">Small Groups</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Trophy className="text-primary" size={24} weight="bold" />
-                <span className="text-sm font-semibold text-foreground">Award Winning</span>
+              <div className="flex items-center gap-3">
+                <Star className="text-yellow-500" size={28} weight="fill" />
+                <span className="text-base font-semibold text-foreground">4.9/5 Rating</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="text-primary" size={24} weight="fill" />
-                <span className="text-sm font-semibold text-foreground">Trusted by 10K+</span>
+              <div className="flex items-center gap-3">
+                <Users className="text-accent" size={28} weight="bold" />
+                <span className="text-base font-semibold text-foreground">1,200+ Happy Guests</span>
               </div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              © 2024 Your Company. All rights reserved.
+            <div className="text-base text-muted-foreground">
+              © 2024 MovieMiles Rome. All rights reserved.
             </div>
           </div>
         </div>
       </section>
 
-      <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-background border-t shadow-lg z-50">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 p-4 bg-background/95 backdrop-blur-md border-t-2 border-accent/20 shadow-2xl z-50">
         <Button
           size="lg"
           onClick={scrollToForm}
-          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold shadow-lg"
+          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-heading font-semibold text-lg h-14 shadow-xl tracking-wide"
         >
-          Get Started Free
-          <ArrowRight weight="bold" className="ml-2" />
+          Get Free Guide + 10% Off
+          <Gift weight="bold" className="ml-2" />
         </Button>
       </div>
     </div>

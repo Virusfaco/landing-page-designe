@@ -1,11 +1,11 @@
 # Planning Guide
 
-A high-converting landing page designed to increase sales by 20% over 6 months through strategic attention capture, clear value proposition, and optimized call-to-action placement that follows proven conversion principles.
+A high-converting landing page for Rome cinema tours that enables visitors to walk inside their favorite movies (La Dolce Vita, Roman Holiday) while discovering the eternal city - designed to increase tour bookings by 20% over 6 months through strategic attention capture, emotional storytelling, and optimized call-to-action placement.
 
 **Experience Qualities**:
-1. **Trustworthy** - Builds immediate credibility through real product imagery, clear messaging, and professional design that eliminates doubt
-2. **Focused** - Maintains singular attention on the primary conversion goal with zero navigation distractions and progressive information disclosure
-3. **Urgent** - Creates compelling reasons to act now through strategic offer framing and persuasive visual hierarchy
+1. **Romantic & Cinematic** - Evokes the glamour and nostalgia of classic Italian cinema through elegant imagery and storytelling that transports visitors emotionally
+2. **Trustworthy & Authentic** - Builds credibility through real Rome imagery, expert guide credentials, and genuine testimonials from tour participants
+3. **Action-Oriented** - Multiple strategic CTAs create urgency with clear value propositions (free guide, 10% discount) that motivate immediate booking
 
 **Complexity Level**: Content Showcase (information-focused)
 This is a single-purpose conversion tool focused on presenting one clear offer with strategic information architecture to guide users toward a single action.
@@ -61,29 +61,29 @@ The design should feel professional, trustworthy, and action-oriented with a cle
 
 ## Color Selection
 
-Complementary (opposite colors) - Creates strong visual contrast between brand elements and call-to-action buttons, ensuring CTAs stand out dramatically while maintaining visual harmony.
+Analogous warm palette inspired by Italian sunsets and classic cinema golden tones - Creates emotional warmth and nostalgic elegance while maintaining strong CTA visibility through strategic accent placement.
 
-- **Primary Color**: Deep Blue (oklch(0.45 0.12 250)) - Communicates trust, professionalism, and reliability; used for headers and brand elements
-- **Secondary Colors**: Soft Gray (oklch(0.96 0.005 250)) backgrounds and Light Blue (oklch(0.92 0.03 250)) accents for cards and subtle emphasis without competing for attention
-- **Accent Color**: Vibrant Orange (oklch(0.68 0.19 45)) - High-energy CTA color that demands action; creates maximum contrast with blue primary color for button visibility
+- **Primary Color**: Roman Terracotta (oklch(0.58 0.15 35)) - Warm, inviting color reminiscent of Rome's historic buildings and Italian cinema's golden age
+- **Secondary Colors**: Creamy Beige (oklch(0.96 0.02 75)) backgrounds and Warm Sand (oklch(0.88 0.04 65)) for cards creating soft, elegant layering
+- **Accent Color**: Cinema Gold (oklch(0.72 0.18 85)) - Rich, attention-grabbing color for CTAs that evokes film awards and premium experiences
 - **Foreground/Background Pairings**:
-  - Background (White oklch(0.99 0 0)): Dark text (oklch(0.25 0.02 250)) - Ratio 12.8:1 ✓
-  - Primary (Deep Blue oklch(0.45 0.12 250)): White text (oklch(0.99 0 0)) - Ratio 8.2:1 ✓
-  - Accent (Vibrant Orange oklch(0.68 0.19 45)): White text (oklch(0.99 0 0)) - Ratio 5.1:1 ✓
-  - Card (Soft Gray oklch(0.96 0.005 250)): Dark text (oklch(0.25 0.02 250)) - Ratio 11.5:1 ✓
-  - Muted (Light Blue oklch(0.92 0.03 250)): Dark Blue text (oklch(0.35 0.08 250)) - Ratio 9.2:1 ✓
+  - Background (Cream oklch(0.97 0.01 75)): Deep Brown text (oklch(0.28 0.03 45)) - Ratio 11.2:1 ✓
+  - Primary (Terracotta oklch(0.58 0.15 35)): White text (oklch(0.99 0 0)) - Ratio 5.8:1 ✓
+  - Accent (Cinema Gold oklch(0.72 0.18 85)): Deep Brown text (oklch(0.28 0.03 45)) - Ratio 8.4:1 ✓
+  - Card (Warm Sand oklch(0.88 0.04 65)): Deep Brown text (oklch(0.28 0.03 45)) - Ratio 9.8:1 ✓
+  - Muted (Light Tan oklch(0.85 0.03 55)): Brown text (oklch(0.38 0.05 45)) - Ratio 6.5:1 ✓
 
 ## Font Selection
 
-Typography should project confidence and clarity with excellent readability at all sizes, using a modern sans-serif for headlines that commands attention and a highly legible sans-serif for body copy that facilitates rapid scanning.
+Typography should evoke classic elegance with a refined serif for headlines that captures cinematic sophistication, paired with a clean sans-serif for body copy ensuring readability and modern usability.
 
 - **Typographic Hierarchy**:
-  - H1 (Hero Headline): Poppins Bold/48px/tight leading (-0.02em) - Commands immediate attention
-  - H2 (Section Headers): Poppins SemiBold/36px/normal leading
-  - H3 (Benefit Titles): Poppins SemiBold/24px/normal leading
-  - Body (Description): Inter Regular/18px/relaxed leading (1.6) - Maximum readability
-  - CTA Button: Poppins SemiBold/18px/wide letter-spacing (0.03em) - Feels substantial
-  - Small Print: Inter Regular/14px/normal leading - Privacy/trust indicators
+  - H1 (Hero Headline): Playfair Display Bold/56px/tight leading (-0.02em) - Cinematic elegance and drama
+  - H2 (Section Headers): Playfair Display SemiBold/40px/normal leading - Classic refinement
+  - H3 (Benefit Titles): Poppins SemiBold/22px/normal leading - Modern clarity
+  - Body (Description): Inter Regular/18px/relaxed leading (1.65) - Effortless readability
+  - CTA Button: Poppins SemiBold/17px/wide letter-spacing (0.04em) - Premium action feel
+  - Small Print: Inter Regular/14px/normal leading - Subtle guidance
 
 ## Animations
 
